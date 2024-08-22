@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建築公司網站範本</title>
+
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="https://static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
+    <link rel="stylesheet" href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/madefor.min.css">
+    <link rel="stylesheet" href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/madeforDisplay.min.css">
+    <link rel="stylesheet" href="//static.parastorage.com/services/marketing-template-viewer/1.2171.0/app.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" sizes="192x192" href="https://www.wix.com/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://www.wix.com/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.wix.com/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: 'Madefor', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 15px;
+            margin-top: 60px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            transform: translateY(-5px);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://example.com/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin: 0;
+            animation: fadeInDown 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-section {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .features {
+            background: linear-gradient(45deg, #6d83f2, #9ec9f2);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .features .feature-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            width: 30%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 15px;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .service-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .service-item img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .service-item p {
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+
+        .portfolio-section {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .portfolio-section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .portfolio-item {
+            width: 30%;
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonials-section {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 45%;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item .author {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .contact-section {
+            background-color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #9ec9f2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #6d83f2;
+        }
+
+        /* 新增 - 彈出式影片播放器 */
+        .video-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .video-popup iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
+
+        .video-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* 新增 - FAQ部分 */
+        .faq-section {
+            background-color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .faq-section h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: #6d83f2;
+        }
+
+        .faq-answer {
+            display: none;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* 新增 - 動態數字顯示部分 */
+        .stats-section {
+            background-color: #f9f9f9;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .stats-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stats-item {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            margin: 15px;
+        }
+
+        .stats-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stats-number {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>建築公司</h1>
+    </header>
+
+    <nav>
+        <a href="#about">關於我們</a>
+        <a href="#services">服務</a>
+        <a href="#portfolio">作品集</a>
+        <a href="#testimonials">客戶推薦</a>
+        <a href="#contact">聯絡我們</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="hero">
+        <h1>打造夢想的空間</h1>
+        <p>我們將您的願景轉化為現實</p>
+    </div>
+
+    <div id="about" class="about-section">
+        <h2>關於我們</h2>
+        <p>我們是一家專業的建築公司，提供從設計到施工的全方位服務，確保每一個項目都能按時、按預算、按質量地完成。</p>
+    </div>
+
+    <div id="features" class="features">
+        <h2>我們的特色</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>高品質材料</h3>
+                <p>我們只使用最好的材料，確保每一個項目都能長期持久。</p>
+            </div>
+            <div class="feature-item">
+                <h3>專業團隊</h3>
+                <p>我們的專業團隊具備豐富的經驗和技術，為您提供最佳的解決方案。</p>
+            </div>
+            <div class="feature-item">
+                <h3>創新設計</h3>
+                <p>我們不斷創新設計，為客戶提供現代且功能齊全的空間。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="services" class="services">
+        <div class="service-item">
+            <img src="https://example.com/design-icon.png" alt="建築設計">
+            <h3>建築設計</h3>
+            <p>提供創新且功能齊全的設計方案，滿足客戶需求。</p>
+        </div>
+        <div class="service-item">
+            <img src="https://example.com/construction-icon.png" alt="施工管理">
+            <h3>施工管理</h3>
+            <p>確保每個項目按時完成，並符合最高質量標準。</p>
+        </div>
+        <div class="service-item">
+            <img src="https://example.com/consulting-icon.png" alt="諮詢服務">
+            <h3>諮詢服務</h3>
+            <p>為您的項目提供專業諮詢與建議，確保最佳結果。</p>
+        </div>
+    </div>
+
+    <div id="portfolio" class="portfolio-section">
+        <h2>作品集</h2>
+        <div class="portfolio-gallery">
+            <div class="portfolio-item">
+                <img src="https://example.com/project1.jpg" alt="項目1">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/project2.jpg" alt="項目2">
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/project3.jpg" alt="項目3">
+            </div>
+        </div>
+    </div>
+
+    <div id="testimonials" class="testimonials-section">
+        <h2>客戶推薦</h2>
+        <div class="testimonial-item">
+            <p>"這家公司幫助我們打造了夢想中的辦公室，他們的設計和施工質量都非常出色！"</p>
+            <p class="author">- 李先生</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"他們的團隊非常專業，按時完成了所有項目，並且質量非常好！"</p>
+            <p class="author">- 王小姐</p>
+        </div>
+    </div>
+
+    <div id="stats" class="stats-section">
+        <h2>我們的成就</h2>
+        <div class="stats-list">
+            <div class="stats-item">
+                <div class="stats-number">200+</div>
+                <div class="stats-label">完成的項目</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number">50+</div>
+                <div class="stats-label">獲得的獎項</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-number">100%</div>
+                <div class="stats-label">客戶滿意度</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="faq" class="faq-section">
+        <h2>常見問題</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">Q1: 你們提供哪些服務？</div>
+                <div class="faq-answer">A1: 我們提供從設計到施工的全方位建築服務。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q2: 你們如何確保項目的質量？</div>
+                <div class="faq-answer">A2: 我們使用高品質的材料並由經驗豐富的專業團隊進行施工，確保項目質量符合標準。</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact-section">
+        <h2>聯絡我們</h2>
+        <div class="contact-form">
+            <label for="name">姓名</label>
+            <input type="text" id="name" placeholder="您的姓名">
+
+            <label for="email">電子郵件</label>
+            <input type="email" id="email" placeholder="您的電子郵件">
+
+            <label for="message">訊息</label>
+            <textarea id="message" placeholder="您的訊息"></textarea>
+
+            <button type="submit">送出</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 建築公司. 保留所有權利。</p>
+        <p>關注我們：<a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a></p>
+    </footer>
+
+    <!-- Video Popup -->
+    <div class="video-popup" id="videoPopup">
+        <span class="video-popup-close" onclick="toggleVideoPopup()">✖</span>
+        <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    </div>
+
+    <!-- Performance and Logger Scripts -->
+    <script>
+        window.onload = function() {
+            // Custom performance tracking
+            const logPerformanceMetrics = () => {
+                const perfEntries = performance.getEntriesByType('navigation');
+                perfEntries.forEach(entry => {
+                    console.log(`Page Load Time: ${entry.loadEventEnd}`);
+                });
+            };
+
+            logPerformanceMetrics();
+        };
+
+        // Video Popup
+        function toggleVideoPopup() {
+            const popup = document.getElementById('videoPopup');
+            const iframe = document.getElementById('videoFrame');
+            if (popup.style.display === 'flex') {
+                popup.style.display = 'none';
+                iframe.src = '';
+            } else {
+                popup.style.display = 'flex';
+                iframe.src = 'https://www.youtube.com/embed/your-video-id';
+            }
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
